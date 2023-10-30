@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Formulário de Documentos</title>
+      <style type="text/css">
+         body {
+         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+         background-color: #f0f0f0;
+         margin: 0;
+         padding: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         min-height: 100vh;
+         }
+         label:not(:has(:checked)) {
+         color: red;
+         }
+         .container {
+         max-width: 90%;
+         padding: 100px;
+         text-align: left;
+         background-color: #ffffff;
+         border: 1px solid #ddd;
+         border-radius: 10px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         transition: background-color 0.5s;
+         line-height: 3.0vh
+         }
+         .container:hover {
+         background-color: #f7f7f7;
+         }
+         h1 {
+         color: #000 ;
+         text-transform: uppercase
+         }
+         .button-group {
+         display: flex;
+         justify-content: center;
+         }
+         .column {
+         flex: 1;
+         text-align: center;
+         }
+         label[type="aviso"]{
+         font-size: 10px;  
+         line-height:1px;
+         margin-top: 0;
+         color: black;
+         }
+         @media print {
+         h1 {
+         font-size: 24px; /* Tamanho da fonte para impressão */
+         text-align: center; /* Centralize o título */
+         margin-top: 30px; /* Margem superior para separar o título do conteúdo */
+         }
+         h2,h3,h4,h5,h6 {
+         font-size: 24px; /* Tamanho da fonte para impressão */
+         text-align: left; /* Centralize o título */
+         margin-top: 20px; /* Margem superior para separar o título do conteúdo */
+         }
+         .container_localic {
+         background-color: #fff; /* Cor de fundo branca para a área de impressão */
+         }
+         /* Outros estilos de impressão específicos, se necessário */
+      </style>
+   </head>
+   <body onload="exibirDialogo()">
+      <div class="container">
+         <h1>check list certidão de localizção </h1>
+         <div id="processoDiv" style="display: none;"></div>
+         <form onsubmit="return validateForm()">
+            <h2>IV – Documentos da Propriedade:</h2>
+            <label>
+            <input type="checkbox" name="matricula_escritura"> Matricula e ou Escritura de compra e venda em nome do proprietario, atualizada nos últimos 30 dias, arquivo digital formato PDF            </label>
+            <br>
+            <label>
+            <input type="checkbox" name="cadeia_dominial"> Cadeia Dominial da área até a origem do Título Definitivo expedido pelo Estado, fornecida
+            pelo Cartório de Registro de Imóveis e expedida pelo cartório nos últimos 30 dias, arquivo digital
+            formato PDF.</label>
+            <br>
+            <br>
+            <button id="imprimirButton" type="submit">Gerar PDF</button>
+            <br>
+            <label type="aviso" name="aviso"> A referência para solicitaçao das peças técnicas previstas no iten IV deste checklist é a Portaria nº 78/2021 Diário Oficial do Estado de Mato Grosso nº 28114 publicado em 28 de outubro de 2021 e retificada em parte no Diário Oficial nº 28116 publicado em 03 de novembro de 2021.</label>
+         </form>
+      </div>
+      <script>
+         function exibirDialogo() {
+         const textoPreFormatado = "INTERMAT-PRO-";
+             const numeroProcesso = prompt("Por favor, insira o número do processo:",textoPreFormatado);
+             if (numeroProcesso) {
+                 const processoDiv = document.getElementById("processoDiv");
+                 processoDiv.innerText = `Número do Processo: ${numeroProcesso}`;
+                 processoDiv.style.display = "block";
+             } else {
+                 alert("Você não inseriu um número de processo.");
+             }
+         }
+      </script>
+      <script>
+         document.getElementById("imprimirButton").addEventListener("click", function () {
+             // Oculta o botão antes de imprimir
+             document.getElementById("imprimirButton").style.display = "none";
+             window.print();
+             
+             // Restaura o estilo do botão após a impressão
+             setTimeout(function () {
+                 document.getElementById("imprimirButton").style.display = "block";
+             }, 1000); // Atraso de 1 segundo para garantir a restauração do estilo após a impressão
+         });
+      </script>
+   </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="modo_claro">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Escolha um Formulário</title>
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <script>
+         // Verifica a preferência atual do usuário (pode ser armazenada em cookies, localStorage, ou por outros meios)
+         const preferenciaModo = localStorage.getItem("preferenciaModo");
+         
+         // Elemento principal a ser alterado
+         const container = document.querySelector(".container");
+         
+         // Função para alternar entre os modos claro e escuro
+         function alternarModo() {
+             if (container.classList.contains("modo_escuro")) {
+                 container.classList.remove("modo_escuro");
+                 localStorage.setItem("preferenciaModo", "claro");
+             } else {
+                 container.classList.add("modo_escuro");
+                 localStorage.setItem("preferenciaModo", "escuro");
+             }
+         }
+         
+         // Verifique a preferência atual e aplique os estilos apropriados
+         if (preferenciaModo === "escuro") {
+             container.classList.add("modo_escuro");
+         }
+         
+         // Adicione um ouvinte de evento de clique ao botão
+         const modoEscuroBtn = document.getElementById("modo_escuro");
+         modoEscuroBtn.addEventListener("click", alternarModo);
+      </script>
+   </head>
+   <body>
+      <div>
+      <div class="container">
+         <button id="modo_escuro">Alternar Modo</button>
+         <h1>ESCOLHA UM FORMULÁRIO PARA CHECKLIST</h1>
+         <div class="button-group">
+            <div class="column">
+               <a href="Carta_de_anuencia/carta_anuencia.html" class="custom-button">Carta de anuência</a>
+               <a href="usucapiao/usucapiao.html" class="custom-button">Certidão de Usucapião</a>
+               <a href="certidao_localizacao/certidao_localizacao.html" class="custom-button">Certidão de Localização</a>
+               <a href="Reconhecimento_limite/reconhecimento_limite.html" class="custom-button">Declaração de Reconhecimento de Limite</a>
+               <a href="regularizacao_assentamento/regularizacao_assentamento.html" class="custom-button">Regularização Fundiária de Assentamento</a>
+               <a href="regularizacao_rural/regularizacao_rural.html" class="custom-button">Regularização Fundiária Rural</a>
+            </div>
+            <div class="column">
+               <a href="regularizacao_rural.html" class="custom-button">certidão de legitimidade</a>
+               <a href="regularizacao_rural.html" class="custom-button">Carta de anuência</a>
+               <a href="regularizacao_rural.html" class="custom-button">Certidão de legitimidade de origem </a>
+               <a href="regularizacao_rural.html" class="custom-button">Estudo cadastral </a>
+            </div>
+         </div>
+      </div>
+      <form id="meuForm" style="display: none;">
+         <!-- Seu formulário aqui -->
+         <label for="processo">Número do Processo:</label>
+         <input type="text" id="processo" readonly>
+      </form>
+      <script>
+         // Inicialmente, oculte o modal e o formulário
+         document.getElementById("myModal").style.display = "none";
+         document.getElementById("meuForm").style.display = "none";
+         
+         // Exibir o modal quando o usuário clicar em um dos botões de escolha do formulário
+         const buttons = document.querySelectorAll(".custom-button");
+         buttons.forEach(function(button) {
+             button.addEventListener("click", function () {
+                 document.getElementById("myModal").style.display = "block";
+             });
+         });
+         
+         // Fechar o modal quando o usuário clicar no botão "X"
+         document.querySelector(".close").addEventListener("click", function () {
+             document.getElementById("myModal").style display = "none";
+         });
+         
+         // Capturar o novo formato do processo e exibi-lo no formulário
+         document.getElementById("reformatarBtn").addEventListener("click", function () {
+             const novoFormato = document.getElementById("novoFormatoProcesso").value;
+             if (novoFormato) {
+                 // Exiba o novo formato no formulário
+                 document.getElementById("processo").value = novoFormato;
+                 // Oculte o modal
+                 document.getElementById("myModal").style.display = "none";
+                 // Exiba o formulário
+                 document.getElementById("meuForm").style.display = "block";
+             } else {
+                 alert("Insira um novo formato válido.");
+             }
+         });
+      </script>    
+   </body>
+</html>

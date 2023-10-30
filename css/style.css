@@ -1,0 +1,88 @@
+/* Estilos padrão para o modo claro */
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 90%;
+    padding: 100px;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s;
+}
+
+h1 {
+    color: #000;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+}
+
+.column {
+    flex: 1;
+    text-align: center;
+}
+
+.custom-button {
+    display: block;
+    padding: 15px 30px;
+    background-color: #007aff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 20px;
+}
+
+/* Adicione espaço entre as colunas de botões */
+.column + .column {
+    margin-left: 90px;
+}
+
+
+.custom-button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para o modo escuro */
+
+
+.modo_escuro {
+    background-color: #333;
+    color: #fff;
+}
+
+.modo_escuro .container {
+    background-color: #686868;
+    border: 1px solid #848484;
+}
+
+.modo_escuro h1 {
+    color: #fff;
+}
+
+.modo_escuro .custom-button {
+    background-color: #333;
+    color: #fff;
+}
+
+.modo_escuro .custom-button:hover {
+    background-color: #000;
+}
