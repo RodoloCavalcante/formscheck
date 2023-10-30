@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Formulário de Documentos</title>
+      <style type="text/css">
+         body {
+         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+         background-color: #f0f0f0;
+         margin: 0;
+         padding: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         min-height: 100vh;
+         }
+         label:not(:has(:checked)) {
+         color: red;
+         }
+         .container {
+         max-width: 90%;
+         padding: 100px;
+         text-align: left;
+         background-color: #ffffff;
+         border: 1px solid #ddd;
+         border-radius: 10px;
+         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         transition: background-color 0.5s;
+         line-height: 3.0vh
+         }
+         .container:hover {
+         background-color: #f7f7f7;
+         }
+         h1 {
+         color: #000 ;
+         text-transform: uppercase;
+         line-height: 1.5
+         }
+         .button-group {
+         display: flex;
+         justify-content: center;
+         }
+         .column {
+         flex: 1;
+         text-align: center;
+         }
+         label[type="aviso"]{
+         font-size: 10px;  
+         line-height:1px;
+         margin-top: 0;
+         color: black;
+         }
+         @media print {
+         h1 {
+         font-size: 24px; /* Tamanho da fonte para impressão */
+         text-align: center; /* Centralize o título */
+         margin-top: 30px; /* Margem superior para separar o título do conteúdo */
+         }
+         h2,h3,h4,h5,h6 {
+         font-size: 24px; /* Tamanho da fonte para impressão */
+         text-align: left; /* Centralize o título */
+         margin-top: 20px; /* Margem superior para separar o título do conteúdo */
+         }
+         .container_localic {
+         background-color: #fff; /* Cor de fundo branca para a área de impressão */
+         }
+         /* Outros estilos de impressão específicos, se necessário */
+      </style>
+   </head>
+   <body onload=exibirDialogo()>
+      <div class="container">
+         <h1>check list regularização fundiária rural</h1>
+         <div id="processoDiv" style="display: none;"></div>
+         <form onsubmit="return validateForm()">
+            <h2>IV – Documentos do Imóvel:</h2>
+            <label>
+            <input type="checkbox" name="matricula_escritura"> Escritura de Compra e Venda, Contrato particular de compra e venda do imóvel quando realizado à época do negócio e com firma reconhecida na data do ato, Escritura Pública Declaratória de Posse realizada pelo atual ocupante; Declaração de Ocupação devidamente registrada na serventia de Registro de Títulos e Documentos da situação do imóvel, em arquivo digital formato PDF.
+
+        
+            </label>
+            <br>
+            <h2>V - Peças Técnicas</h2>
+            <label>
+            <input type="checkbox" name="relatorio_tecnico_levantamento"> Relatório Técnico do Levantamento em arquivo digital formato PDF assinado com certificado digital;
+            </label>
+            <br>
+            <label>
+            <input type="checkbox" name="relatorio_técnico_processamento"> Relatório de processamento da base de apoio em arquivo digital formato PDF assinado com certificado digital;            </label>
+            <br>
+            <label>
+            <input type="checkbox" name="memorial_descritivo"> Relatório de processamento dos vértices de limite em arquivo digital formato PDF assinado com certificado digital;           
+            </label>
+            <br>
+            <label>
+            <input type="checkbox" name="memorial_descritivo"> Planilha de Cálculo da área em arquivo digital formato PDF assinado com certificado digital;           
+            </label>
+            <br>
+             <label>
+            <input type="checkbox" name="memorial_descritivo"> Planta Topográfica de Regularização Fundiária em arquivo digital formato PDF assinado com certificado digital;         
+            </label>
+            <br>
+               <label>
+            <input type="checkbox" name="memorial_descritivo"> Planta Topográfica de Arrecadação Fundiária em arquivo digital formato PDF assinado com certificado digital;        
+            </label>
+            <br>
+               <label>
+            <input type="checkbox" name="memorial_descritivo"> Memorial Descritivo de Regularização Fundiária em arquivo digital formato PDF assinado com certificado digital;         
+            </label>
+            <br>
+                 <label>
+            <input type="checkbox" name="memorial_descritivo"> Memorial Descritivo de Arrecadação Fundiária em arquivo digital formato PDF assinado com certificado digital;        
+            </label>
+            <br>
+                  <label>
+            <input type="checkbox" name="memorial_descritivo"> ART/TRT em arquivo de formato PDF devidamente assinada pelo responsável técnico e pelo contratante com o preenchimento do Resumo do Contrato informando o cumprimento da Lei Federal nº 10267/01, decreto nº. 4449/02 e Norma Técnica vigente;       
+            </label>	   
+			   <br>
+			         <label>
+            <input type="checkbox" name="memorial_descritivo"> Dados brutos e Rinex, arquivo vetorial em Shape file organizados em pasta(s) compactada(s) em arquivo ZIP. Observação: Compactar pasta(s) em no máximo 25 megabytes para upload no SIGADOC;            
+            </label>
+            <br>
+                <label>
+            <input type="checkbox" name="memorial_descritivo"> Declaração de Reconhecimento de Limites, no Modelo Padrão, em arquivo digital formato PDF.
+            </label>
+            <br>
+			         <label>
+            <input type="checkbox" name="memorial_descritivo"> Declaração de Regularização Fundiária.       
+            </label>
+           
+            <br>
+            <label>
+     <input type="checkbox" name="memorial_descritivo"> Dados brutos e Rinex, arquivo vetorial em Shape file organizados em pasta(s) compactada(s) em arquivo ZIP. Observação: Compactar pasta(s) em no máximo 25 megabytes para upload no SIGADOC;            
+            </label>
+            <br>
+            
+              <h2>VI - Peças Técnicas em Gleba Pública estadual e em áreas devolutas a serem arrecadadas pelo Estado de Mato Grosso, certificadas no SIGEF:</h2>
+              <label>
+              
+                   <label>
+     <input type="checkbox" name="memorial_descritivo"> Planta topográfica prévia/certificada em arquivo digital formato PDF;        
+            </label>
+            <br>
+         <label>
+     <input type="checkbox" name="memorial_descritivo"> Memorial descritivo prévia/certificado em arquivo digital formato PDF;         
+            </label>
+            <br>
+            <label>
+     <input type="checkbox" name="memorial_descritivo"> Planilha Eletrônica modelo ODS;      
+            </label>
+            <br>
+              <label>
+     <input type="checkbox" name="memorial_descritivo"> 
+     ART/TRT em arquivo de formato PDF devidamente assinada pelo responsável técnico e pelo contratante com o preenchimento do Resumo do Contrato informando o cumprimento da Lei Federal nº 10267/01, decreto nº. 4449/02 e Norma Técnica vigente;     
+            </label>
+            <br>
+                  <label>
+     <input type="checkbox" name="memorial_descritivo"> 
+     Arquivo vetorial DWG ou DXF e Shape file organizados em pasta compactada em arquivo ZIP organizados em pasta(s) compactada(s) em arquivo ZIP. Observação: Compactar pasta(s) em no máximo 25 megabytes para upload no SIGADOC;            
+     </label>
+            <br>
+            <label>
+     <input type="checkbox" name="memorial_descritivo"> 
+   Declaração de Reconhecimento de Limites, no Modelo Padrão, em arquivo digital formato PDF;        
+     </label>
+            <br>
+                 <label>
+     <input type="checkbox" name="memorial_descritivo"> 
+   Espelho de Parcela validada pelo SIGEF, aguardando fiscalização do georreferenciamento e pendente de titulação.     
+     </label>
+            <br>
+              <button id="imprimirButton" type="submit">Gerar PDF</button>
+              <br>
+            <label type="aviso" name="aviso"> A referência para solicitação das peças técnicas previstas nos itens V e VI deste checklist é a Portaria nº 132/2023 Diário Oficial do Estado de Mato Grosso nº 28563 publicado em 15 de agosto de 2023.</label>
+         </form>
+      </div>
+      <script>
+         function exibirDialogo() {
+         const textoPreFormatado = "INTERMAT-PRO-";
+             const numeroProcesso = prompt("Por favor, insira o número do processo:",textoPreFormatado);
+             if (numeroProcesso) {
+                 const processoDiv = document.getElementById("processoDiv");
+                 processoDiv.innerText = `Número do Processo: ${numeroProcesso}`;
+                 processoDiv.style.display = "block";
+             } else {
+                 alert("Você não inseriu um número de processo.");
+             }
+         }
+      </script>
+      <script>
+         document.getElementById("imprimirButton").addEventListener("click", function () {
+             // Oculta o botão antes de imprimir
+             document.getElementById("imprimirButton").style.display = "none";
+             window.print();
+             
+             // Restaura o estilo do botão após a impressão
+             setTimeout(function () {
+                 document.getElementById("imprimirButton").style.display = "block";
+             }, 1000); // Atraso de 1 segundo para garantir a restauração do estilo após a impressão
+         });
+      </script>
+   </body>
+</html>
